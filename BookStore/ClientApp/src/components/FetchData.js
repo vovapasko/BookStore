@@ -24,9 +24,10 @@ export class FetchData extends Component {
         </thead>
         <tbody>
           {books.map(books =>
-              <tr key={books.ISBN}>
-              <td>{books.Title}</td>
-              <td>{books.Author}</td>
+              <tr key={books.isbn}>
+              <td>{books.isbn}</td>
+              <td>{books.title}</td>
+              <td>{books.author}</td>
             </tr>
           )}
         </tbody>
@@ -51,6 +52,6 @@ export class FetchData extends Component {
   async populateWeatherData() {
     const response = await fetch('api/books');
     const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
+    this.setState({ books: data, loading: false });
   }
 }
